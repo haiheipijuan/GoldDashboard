@@ -323,8 +323,8 @@
         "stars": 5,
         "prev": "3.7% / 3.3%（7月）",
         "forecast": {
-          "text": "克利夫兰模型 3.78%/3.40%；沃什估计约 3.6%",
-          "pending": false
+          "text": "3.78% / 3.40%",
+          "pending": true
         },
         "actual": "待公布",
         "impactCls": "pend",

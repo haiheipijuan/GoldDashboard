@@ -79,7 +79,8 @@ if (!cal || !Array.isArray(cal.rows) || cal.rows.length !== 11) err('calendar.ro
     const v = r[k];
     const ok = v === null || isStr(v) || (typeof v === 'object' && isStr(v.text));
     if (!ok) err(`calendar.rows[${i}].${k} must be null, short string, or {text,pending}`);
-    else if (isStr(v) && v.length > 40) err(`calendar.rows[${i}].${k} too long (>40 chars), use short value or null`);
+    else if (isStr(v) && v.length > 20) err(`calendar.rows[${i}].${k} too long (>20 chars), only number+unit like "3.7% / 3.3%" or null`);
+    else if ((isStr(v) ? v : v?.text || '').match(/[；。]/)) err(`calendar.rows[${i}].${k} contains narrative punctuation (；/。), use one short value or null (details belong in timeline/scenarios)`);
   }
   if (!['bull', 'bear', 'mid', 'pend'].includes(r.impactCls)) err(`calendar.rows[${i}].impactCls must be bull|bear|mid|pend`);
   if (!isStr(r.impactText)) err(`calendar.rows[${i}].impactText missing`);

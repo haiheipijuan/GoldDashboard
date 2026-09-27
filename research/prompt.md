@@ -109,7 +109,7 @@
 - `kpi.cards` 恰好 6；`drivers` 恰好 5；`scenarios` 恰好 3（id=A/B/C）；`calendar.rows` 恰好 11；`timeline.entries` 恰好 10；`checklist` 恰好 6。
 - `chart.labels.length === chart.series.length`，series 为有限数字数组。
 - `timeline` 的 `ev`、`de` 各 ≤ 200 字（移动端可读性）。
-- `calendar` 的 `prev/forecast/actual`：短值（≤40 字符）或 `null`。**禁止**把叙述性长文本塞进这三列。
+- `calendar` 的 `prev/forecast/actual`：极短值或 `null`。**只允许数字+单位**（如 `3.7% / 3.3%`、`47.2`、`待公布`），≤15 字符，禁止出现机构名、人名、"模型""估计"等叙述词和分号长句。预测来源的细节请写到 `timeline` 或 `scenarios`，不要写进日历单元格（同一句话在页面多处重复会造成视觉重影）。
 - `risk.body` 必须逐字包含 `不构成任何投资建议，不承诺任何价格走势`。
 - 富文本字段（kpi.desc、drivers.body、scenarios.cond）只允许 `<b>…</b>` 内联标签，其余字符会被转义。
 - `dirText` **不要**以"方向："开头（渲染器会自动加）。

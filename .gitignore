@@ -1,5 +1,6 @@
 # 本地留档，不入库（避免仓库膨胀）
 _orig_index.html
+_data_backup.json
 
 # 运行产物/临时文件
 _shots/

@@ -31,7 +31,7 @@ const userMessage = `现在是 ${new Date().toISOString()}（UTC）。请开始�
 
 // ---- 调用 API ------------------------------------------------------------
 async function callLLM() {
-  const res = await fetch(`${apiBase}/chat/completions`, {
+  const doFetch = (extra) => fetch(`${apiBase}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -44,39 +44,64 @@ async function callLLM() {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage },
       ],
+      ...extra,
     }),
     signal: AbortSignal.timeout(timeoutMs),
   });
+  // 优先要求 JSON 输出模式；供应商不支持该参数（400）时退回普通请求
+  let res;
+  try {
+    res = await doFetch({ response_format: { type: 'json_object' } });
+  } catch (e) {
+    throw e;
+  }
+  if (res.status === 400) {
+    await res.text().catch(() => '');
+    console.log('[research] json_object 模式被拒绝，改用普通请求');
+    res = await doFetch({});
+  }
   if (!res.ok) {
     const body = await res.text().catch(() => '');
     throw new Error(`LLM API ${res.status}: ${body.slice(0, 500)}`);
   }
   const json = await res.json();
-  return json.choices?.[0]?.message?.content ?? '';
+  const content = json.choices?.[0]?.message?.content ?? '';
+  if (!content.trim()) throw new Error('LLM 返回空内容');
+  return content;
 }
 
 // ---- 从回复中提取 JSON ----------------------------------------------------
+function repairJson(text) {
+  // 去掉尾逗号（对象/数组末尾的 ,）
+  return text.replace(/,\s*([}\]])/g, '$1');
+}
 function extractJson(text) {
-  // 直接解析
-  try { return JSON.parse(text); } catch {}
-  // 去掉可能的 markdown 代码块
-  const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-  if (fence) {
-    try { return JSON.parse(fence[1]); } catch {}
+  // 去掉推理块（MiniMax 等模型会在 content 里内嵌 <think>...</think>）
+  const stripped = text.replace(/<\s*think\s*>[\s\S]*?<\s*\/\s*think\s*>/gi, '').trim();
+  const candidates = [];
+  // markdown 代码块（可能有多个，全部收集）
+  for (const src of [stripped, text]) {
+    for (const m of src.matchAll(/```(?:json)?\s*([\s\S]*?)```/g)) candidates.push(m[1]);
+    const s = src.indexOf('{');
+    const e = src.lastIndexOf('}');
+    if (s >= 0 && e > s) candidates.push(src.slice(s, e + 1));
   }
-  // 取第一个 { 到最后一个 }
-  const start = text.indexOf('{');
-  const end = text.lastIndexOf('}');
-  if (start >= 0 && end > start) {
-    try { return JSON.parse(text.slice(start, end + 1)); } catch {}
+  candidates.push(text);
+  let lastErr;
+  for (const cand of candidates) {
+    try { return JSON.parse(cand); } catch (e) { lastErr = e; }
+    try { return JSON.parse(repairJson(cand)); } catch (e) { lastErr = e; }
   }
-  throw new Error('无法从 LLM 回复中解析出 JSON');
+  const head = text.slice(0, 600).replace(/\s+/g, ' ');
+  const tail = text.slice(-300).replace(/\s+/g, ' ');
+  throw new Error(`无法从 LLM 回复中解析出 JSON（${lastErr?.message}）。回复开头: ${head} … 结尾: ${tail}`);
 }
 
 // ---- main ------------------------------------------------------------------
 (async () => {
   console.log(`[research] 调用 ${model} @ ${apiBase} ...`);
   const content = await callLLM();
+  console.log(`[research] LLM 返回 ${content.length} 字符`);
   const data = extractJson(content);
   writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf8');
   console.log('[research] data.json 已写入，等待 validate.mjs 校验');

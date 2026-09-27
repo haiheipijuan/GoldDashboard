@@ -115,6 +115,14 @@
   .tg.bear{background:rgba(95,191,133,.14);color:#5fbf85}
   .tg.mid{background:rgba(128,138,158,.14);color:var(--sub)}
   .tg.pend{background:rgba(212,166,67,.14);color:var(--gold)}
+  /* 实时金价 */
+  .live{display:flex;align-items:baseline;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 12px}
+  .live .tag{font-size:10px;color:var(--dim);letter-spacing:.5px}
+  .live .p{font-size:17px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+  .live .c{font-size:11px;font-variant-numeric:tabular-nums;color:var(--dim)}
+  .live .c.up{color:#e25555}
+  .live .c.down{color:#3fb27f}
+  .live .c.err{color:var(--dim);font-style:italic}
   /* 风险 */
   .risk{background:rgba(226,85,85,.08);border:1px solid rgba(226,85,85,.35);border-radius:12px;padding:18px 20px;margin-top:26px}
   .risk h3{font-size:15px;color:var(--red);margin-bottom:8px}
@@ -148,6 +156,9 @@
     </div>
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end">
       <div class="status-tag"><span class="dot"></span>__STATUS_TAG_TEXT__</div>
+      <div class="live" title="PAXG/USDT（OKX，1 盎司黄金锚定代币，与现货金同步）· 每 10 秒刷新">
+        <span class="tag">实时金价</span><span class="p" id="livePx">--</span><span class="c" id="liveChg"></span>
+      </div>
       <button type="button" class="rbtn" id="refreshToggle">暂停自动刷新</button>
     </div>
   </header>
@@ -297,6 +308,36 @@ __CHECKLIST_ROWS__</tbody>
         rbtn.classList.add('paused');
       }
     });
+  }
+
+  /* ===== 实时金价（OKX PAXG/USDT，10s 轮询）===== */
+  var livePx = document.getElementById('livePx');
+  var liveChg = document.getElementById('liveChg');
+  if (livePx && liveChg) {
+    function fmt(n){ return n.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1}); }
+    function tick(){
+      fetch('https://www.okx.com/api/v5/market/ticker?instId=PAXG-USDT')
+        .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+        .then(function(j){
+          var d = j && j.data && j.data[0];
+          if (!d || !d.last) throw new Error('bad payload');
+          var last = parseFloat(d.last), open = parseFloat(d.open24h);
+          livePx.textContent = fmt(last);
+          if (Number.isFinite(open) && open > 0) {
+            var chg = last - open, pct = chg / open * 100;
+            liveChg.textContent = (chg >= 0 ? '+' : '') + fmt(chg) + ' (' + (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%)';
+            liveChg.className = 'c ' + (chg >= 0 ? 'up' : 'down');
+          } else {
+            liveChg.textContent = '';
+          }
+        })
+        .catch(function(){
+          liveChg.textContent = '行情暂不可用';
+          liveChg.className = 'c err';
+        });
+    }
+    tick();
+    setInterval(tick, 10000);
   }
 })();
 </script>

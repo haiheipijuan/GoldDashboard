@@ -34,6 +34,13 @@ if (!Array.isArray(ch?.markLines)) err('chart.markLines must be an array');
 (ch?.markLines || []).forEach((m, i) => {
   if (typeof m.value !== 'number' || !isStr(m.color) || !isStr(m.label)) err(`chart.markLines[${i}] invalid`);
 });
+if (!Array.isArray(ch?.markLines) || ch.markLines.length < 4) err('chart.markLines needs at least 4 lines');
+else {
+  const upperPressure = ch.markLines.filter((m) => /压力/.test(m.label));
+  if (upperPressure.length < 2) err('chart.markLines must include two pressure lines labeled with 压力 (中期压力位 + 顶部/长期压力位)');
+  const topLine = Math.max(...ch.markLines.map((m) => m.value));
+  if (typeof ch.yMax === 'number' && ch.yMax < topLine + 20) err(`chart.yMax(${ch.yMax}) must leave room above the highest markLine(${topLine})`);
+}
 
 // ---- levels ----
 if (!Array.isArray(data.levels) || data.levels.length !== 2) err('levels must have exactly 2 entries');

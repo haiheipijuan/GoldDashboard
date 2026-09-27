@@ -86,8 +86,10 @@ if (!cal || !Array.isArray(cal.rows) || cal.rows.length !== 11) err('calendar.ro
     const v = r[k];
     const ok = v === null || isStr(v) || (typeof v === 'object' && isStr(v.text));
     if (!ok) err(`calendar.rows[${i}].${k} must be null, short string, or {text,pending}`);
-    else if (isStr(v) && v.length > 20) err(`calendar.rows[${i}].${k} too long (>20 chars), only number+unit like "3.7% / 3.3%" or null`);
-    else if ((isStr(v) ? v : v?.text || '').match(/[；。]/)) err(`calendar.rows[${i}].${k} contains narrative punctuation (；/。), use one short value or null (details belong in timeline/scenarios)`);
+    const txt = isStr(v) ? v : (v && typeof v === 'object' ? v.text || '' : '');
+    if (txt.length > 20) err(`calendar.rows[${i}].${k} too long (>20 chars): "${txt}", only number+unit like "3.7% / 3.3%" or null`);
+    else if (txt.match(/[；。]/)) err(`calendar.rows[${i}].${k} contains narrative punctuation (；/。): "${txt}", use one short value or null (details belong in timeline/scenarios)`);
+    else if (txt.match(/模型|估计|预测|克利夫兰|沃什|联储|FedWatch/)) err(`calendar.rows[${i}].${k} contains source attribution: "${txt}", strip institution/person names, keep numbers only`);
   }
   if (!['bull', 'bear', 'mid', 'pend'].includes(r.impactCls)) err(`calendar.rows[${i}].impactCls must be bull|bear|mid|pend`);
   if (!isStr(r.impactText)) err(`calendar.rows[${i}].impactText missing`);

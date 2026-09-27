@@ -1,0 +1,48 @@
+name: gold-dashboard-refresh
+
+# 每 2 小时：UTC 偶数小时的 :11 ≈ 北京时间偶数小时的 :11（UTC+8）
+on:
+  schedule:
+    - cron: '11 */2 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Research (LLM)
+        run: node research/run.mjs
+        env:
+          LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+
+      - name: Validate schema
+        run: node validate.mjs
+
+      - name: Render index.html
+        run: node render.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "gold-dashboard-bot"
+          git config user.email "dashboard@users.noreply.github.com"
+          git add data.json index.html
+          if git diff --cached --quiet; then
+            echo "no changes, skip push"
+          else
+            ts=$(date -u +'%Y-%m-%d %H:%M UTC')
+            git commit -m "refresh: $ts"
+            git push
+          fi

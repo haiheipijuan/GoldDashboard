@@ -19,9 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # 自动启用 Pages 并将构建源设为 GitHub Actions（无需在 Settings 手动配置）
-      - uses: actions/enable-pages@v4
+      # enablement=auto：若仓库尚未启用 Pages，则自动启用并将构建源设为 GitHub Actions
       - uses: actions/configure-pages@v5
+        with:
+          enablement: auto
       - name: Prepare publish dir
         run: |
           mkdir -p .publish

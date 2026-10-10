@@ -155,7 +155,7 @@
       <h1>黄金走势跟踪看板<small>GOLD TRACKING DASHBOARD · 情景推演 + 事件清单</small></h1>
     </div>
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end">
-      <div class="status-tag"><span class="dot"></span>数据截至 10/11 02:29 北京时间 · 北美时段无重大新催化剂，金价4100上方整固；10Y约5.22%，美元约103.1；10月加息概率约95%，10/28-29 FOMC前4100仍是核心多空分水岭</div>
+      <div class="status-tag"><span class="dot"></span>数据截至 10/11 07:28 北京时间 · 周六亚洲时段，金价参考周五北美收盘约4108美元/盎司，4100整数关口本周经历严峻考验后守住；10Y约5.22%，美元约103.1；10月FOMC加息概率约95%，10/16零售销售和本周官员讲话仍是本周核心变量</div>
       <div class="live" title="PAXG/USDT（OKX，1 盎司黄金锚定代币，与现货金同步）· 每 10 秒刷新">
         <span class="tag">实时金价</span><span class="p" id="livePx">--</span><span class="c" id="liveChg"></span>
       </div>
@@ -168,14 +168,14 @@
     <div class="sec-title"><span class="no">1</span>核心指标快照 <span class="hint">关键指标速览（点击卡片无操作，纯展示）</span></div>
     <div class="grid kpi-grid">
       <div class="kpi">
-        <div class="k">伦敦金现 <span class="pill bear">4100上方整固</span></div>
+        <div class="k">伦敦金现 <span class="pill bear">4100上方守住</span></div>
         <div class="v key">≈4108</div>
-        <div class="d bear">10/11 凌晨金价约4108美元/盎司，北美时段维持4100-4115区间窄幅运行，无重大新催化剂，4100整数关口守住。亚盘清淡整固延续至北美时段，多空双方均无明显动能突破。</div>
+        <div class="d bear">10/11亚洲时段无新价格，周五北美收盘约4108美元/盎司；4100整数关口经历CPI+PPI双重冲击后在北美时段守住，短暂刺破后收复，市场等待本周新催化剂。</div>
       </div>
       <div class="kpi">
         <div class="k">纽约金期货 <span class="pill bear">略低于现货</span></div>
         <div class="v">≈4100-4112</div>
-        <div class="d bear">COMEX 12月黄金期货北美时段约4100-4112美元/盎司，较伦敦金现低约3-5美元。伦敦银现约54.0-54.5，银价跟随金价低位整固，金银比约75.5。</div>
+        <div class="d bear">COMEX 12月黄金期货周五北美时段约4100-4112美元/盎司，较伦敦金现低约3-5美元；金银比约75.5，银价跟随金价低位整固。</div>
       </div>
       <div class="kpi">
         <div class="k">沪金主连 / 黄金T+D <span class="pill bear">内盘跟跌</span></div>
@@ -185,17 +185,17 @@
       <div class="kpi">
         <div class="k">美元指数 <span class="pill bear">103上方整固</span></div>
         <div class="v warn">≈103.1</div>
-        <div class="d warn">美元指数北美时段约103.0-103.2，PPI超预期后站上103整数关口，102.50已彻底转化为超稳固底部，103上方对金价形成系统性压制。</div>
+        <div class="d warn">美元指数周五约103.0-103.2，PPI超预期后站上103，102.50已彻底转化为超稳固底部；103上方对金价形成系统性压制，中期方向仍偏强。</div>
       </div>
       <div class="kpi">
         <div class="k">10Y 美债收益率 <span class="pill bear">5.22% 高位</span></div>
         <div class="v warn">≈5.22%</div>
-        <div class="d warn">10Y美债收益率北美时段约5.20%-5.23%区间整固，PPI超预期后触及5.24%的高点，5.10%已转化为坚实底部，若维持5.20%以上金价将持续承压。</div>
+        <div class="d warn">10Y美债收益率周五约5.20%-5.23%区间整固，PPI超预期后触及5.24%近期高点，5.10%已彻底转化为超稳固底部；实际利率上行对零息资产黄金形成系统性压制。</div>
       </div>
       <div class="kpi">
-        <div class="k">10月密歇根消费者信心（初值） <span class="pill bear">已公布·偏鹰</span></div>
+        <div class="k">10月密歇根消费者信心（初值） <span class="pill bear">已公布·偏中性</span></div>
         <div class="v">已公布</div>
-        <div class="d bear">美国10月密歇根消费者信心初值约68.9（前值70.1），低于预期，消费者信心走弱，但1年期通胀预期约3.1%（前值3.2%），略降；5年期约3.0%，整体未改变10月加息路径。</div>
+        <div class="d bear">美国10月密歇根消费者信心初值约68.9（前值70.1），1年期通胀预期约3.1%（前值3.2%），略降但仍处偏高水平；整体偏中性，不足以撼动10月加息路径。</div>
       </div>
     </div>
   </section>
@@ -205,7 +205,7 @@
     <div class="sec-title"><span class="no">2</span>9 月走势与关键位 <span class="hint">近 17 个交易日收盘价</span></div>
     <div class="chart-card">
       <div id="goldChart"></div>
-      <div class="chart-fallback" id="chartFallback">走势图加载失败 —— 关键位参考下方点位面板（9月区间：高点4510/低点4244；10/11凌晨金价约4108，北美时段4100-4115区间整固；10Y约5.22%，美元约103.1；10月FOMC加息概率约95%，10/28-29是下一个关键节点）</div>
+      <div class="chart-fallback" id="chartFallback">走势图加载失败 —— 关键位参考下方点位面板（9月区间：高点4510/低点4244；10/11亚洲时段金价约4108（周五北美收盘），4100整数关口守住；10Y约5.22%，美元约103.1；10月FOMC加息概率约95%，10/28-29是下一个关键节点）</div>
     </div>
   </section>
 
@@ -219,12 +219,12 @@
         <div class="rung"><span class="lv" style="color:var(--red)">4383-4430</span><span class="nm">中期压力密集区 · 9月成交密集区（9/25高点4430.4）</span><div class="bubble" style="background:var(--red);width:72%"></div></div>
         <div class="rung"><span class="lv" style="color:var(--red)">4340</span><span class="nm">关键阻力4340（9/17收盘4341）· 多空分水岭，已失守</span><div class="bubble" style="background:var(--red);width:52%"></div></div>
         <div class="rung"><span class="lv" style="color:var(--red)">4150</span><span class="nm">整数关口4150（已确认失守）· 转化为强压力</span><div class="bubble" style="background:var(--red);width:44%"></div></div>
-        <div class="rung"><span class="lv" style="color:var(--gold)">4108</span><span class="nm">当前报价（约4108美元/盎司，10/11 02:29北京时间）</span><span class="tag">现在</span></div>
+        <div class="rung"><span class="lv" style="color:var(--gold)">4108</span><span class="nm">当前报价（约4108美元/盎司，10/11 07:28北京时间，周五收盘）</span><span class="tag">现在</span></div>
       </div>
       <div class="lvl">
         <h3><span class="mark" style="background:var(--green)"></span>支撑位（下方）</h3>
-        <div class="rung"><span class="lv" style="color:var(--gold)">4108</span><span class="nm">当前报价（约4108美元/盎司，10/11 02:29北京时间）</span><span class="tag">现在</span></div>
-        <div class="rung"><span class="lv" style="color:var(--green)">4100</span><span class="nm">整数关口4100（昨夜守住）· 北美时段核心多空博弈区</span><div class="bubble" style="background:var(--green);width:42%"></div></div>
+        <div class="rung"><span class="lv" style="color:var(--gold)">4108</span><span class="nm">当前报价（约4108美元/盎司，10/11 07:28北京时间，周五收盘）</span><span class="tag">现在</span></div>
+        <div class="rung"><span class="lv" style="color:var(--green)">4100</span><span class="nm">整数关口4100（本周守住）· 北美时段核心多空博弈区，短暂刺破后收复</span><div class="bubble" style="background:var(--green);width:42%"></div></div>
         <div class="rung"><span class="lv" style="color:var(--green)">4050-4100</span><span class="nm">深度支撑区 · 8月次低区（4100确认破位后核心下探目标）</span><div class="bubble" style="background:var(--green);width:30%"></div></div>
         <div class="rung"><span class="lv" style="color:var(--green)">4000</span><span class="nm">整数关口4000（年内长期支撑带，极端尾部风险）</span><div class="bubble" style="background:var(--green);width:12%"></div></div>
       </div>
@@ -240,40 +240,40 @@
           <div><div class="t">美联储政策</div><div class="s">10月加息概率约95% · CPI+PPI双超预期+FOMC纪要鹰派三重确认鹰派路径</div></div>
           <span class="pill bear">利空</span>
         </div>
-        <p>CPI超预期（+3.7%）+PPI超预期（+2.5%）+FOMC纪要偏鹰三重利空叠加确认10月加息路径。CME FedWatch显示10/28-29 FOMC加息25bp概率约95%，12月再度加息概率约35%。<b>点阵图显示2026年可能还有1-2次加息，2027年才开始降息</b>。密歇根消费者信心初值约68.9略低于前值70.1，但1年期通胀预期约3.1%仍处偏高水平，不足以动摇美联储加息决心。
-        <div class="dir" style="color:var(--red)">方向：压制金价 · 五重利空确认加息路径，10Y约5.22%高位压制，4100持续承压</div>
-      </div>
-      <div class="drv">
-        <div class="drv-head">
-          <div><div class="t">昨夜密歇根消费者信心</div><div class="s">已公布 · 初值68.9（前值70.1），1年期通胀预期约3.1%，整体偏中性</div></div>
-          <span class="pill bear">偏空</span>
-        </div>
-        <p>美国10月密歇根消费者信心初值约68.9，低于前值70.1和市场预期，降至近4个月最低水平。1年期通胀预期约3.1%（前值3.2%），略降但仍处偏高区间；5年期通胀预期约3.0%（前值3.0%），持稳。<b>消费者信心走弱打压消费预期，但未显著改变通胀粘性预期</b>，整体对金价无明确方向指引，10月加息路径不受影响。
-        <div class="dir" style="color:var(--red)">方向：无明确方向 · 消费者信心走弱但通胀预期仍偏高，10月加息路径不受撼动</div>
+        <p>CPI超预期（+3.7%）+PPI超预期（+2.5%）+FOMC纪要偏鹰三重利空叠加确认10月加息路径。CME FedWatch显示10/28-29 FOMC加息25bp概率约95%，12月再度加息概率约35%。<b>点阵图显示2026年可能还有1-2次加息，2027年才开始降息</b>。密歇根消费者信心初值约68.9，但1年期通胀预期约3.1%仍处偏高水平，不足以动摇美联储加息决心。本周官员讲话是最大变量。
+        <div class="dir" style="color:var(--red)">方向：压制金价 · 三重利空确认加息路径，10Y约5.22%高位压制，4100持续承压</div>
       </div>
       <div class="drv">
         <div class="drv-head">
           <div><div class="t">美元指数</div><div class="s">约103.1 · PPI超预期后站上103整数关口，102.50成为超稳固底部</div></div>
           <span class="pill bear">利空</span>
         </div>
-        <p>美元指数北美时段约103.0-103.2区间整固，PPI超预期后站上103整数关口，102.50彻底转化为超稳固底部。<b>103.1已是当前空头防线</b>，若美元维持103以上，金价难有像样反弹。美联储鹰派路径下美元中期方向仍偏强，103.5为近期目标位。
+        <p>美元指数周五约103.0-103.2区间整固，PPI超预期后站上103，102.50彻底转化为超稳固底部。<b>103.1已是当前空头防线</b>，若美元维持103以上，金价难有像样反弹。美联储鹰派路径下美元中期方向仍偏强，103.5为近期目标位。
         <div class="dir" style="color:var(--red)">方向：压制金价 · 美元103上方，若维持103+金价难有像样反弹，4100上方整固不改空头趋势</div>
       </div>
       <div class="drv">
         <div class="drv-head">
-          <div><div class="t">10Y美债收益率</div><div class="s">约5.22% · 昨夜PPI超预期后触及5.24%，5.10%已成超稳固底部</div></div>
+          <div><div class="t">10Y美债收益率</div><div class="s">约5.22% · PPI超预期后触及5.24%，5.10%已成超稳固底部</div></div>
           <span class="pill bear">利空</span>
         </div>
-        <p>10Y美债收益率北美时段约5.20%-5.23%区间整固，PPI超预期后触及5.24%近期高点。<b>5.10%已彻底转化为超稳固底部</b>，若今夜维持5.20%以上水平，金价将持续承压。实际利率（10Y通胀调整后收益率）持续上行，对零息资产黄金形成系统性压制。
+        <p>10Y美债收益率周五约5.20%-5.23%区间整固，PPI超预期后触及5.24%近期高点。<b>5.10%已彻底转化为超稳固底部</b>，若本周维持5.20%以上水平，金价将持续承压。实际利率（10Y通胀调整后收益率）持续上行，对零息资产黄金形成系统性压制。
         <div class="dir" style="color:var(--red)">方向：压制金价 · 10Y约5.22%高位，实际利率上行，若维持5.20%+金价整固后仍有下试压力</div>
       </div>
       <div class="drv">
         <div class="drv-head">
-          <div><div class="t">本周美联储官员讲话窗口</div><div class="s">10/11官员讲话已发生 · 本周仍有发声窗口，密切关注措辞基调</div></div>
+          <div><div class="t">本周美联储官员讲话窗口</div><div class="s">10/11-10/15官员发声窗口 · CPI+PPI双超后讲话措辞尤为关键</div></div>
           <span class="pill bear">偏空</span>
         </div>
-        <p>美联储静默期结束后，本周美联储官员仍有发声窗口。昨日10:30官员亚盘讲话未超预期鹰派，金价维持4100上方整固。<b>本周后续官员讲话若继续强化10月加息预期</b>，可能成为压垮4100的最后一根稻草。当前CME定价10月加息概率约95%，任何官员超预期鹰派表态都可能触发快速破位。
-        <div class="dir" style="color:var(--red)">方向：压制金价 · 官员讲话仍是本周最大变量，4100整数关口本周内破位概率约45%</div>
+        <p>美联储静默期已过，本周美联储官员进入密集发声窗口。在CPI+PPI双超预期的鹰派背景下，任何官员<b>继续强化10月加息预期</b>的表态都可能成为压垮4100的最后一根稻草。当前CME定价10月加息概率约95%，若官员措辞超预期鹰派可能推动概率升至97%-98%，快速触发4100破位。
+        <div class="dir" style="color:var(--red)">方向：压制金价 · 官员讲话仍是本周最大变量，4100整数关口本周破位概率约50%</div>
+      </div>
+      <div class="drv">
+        <div class="drv-head">
+          <div><div class="t">9月PPI超预期冲击</div><div class="s">已发生 · 同比+2.5%（前值+2.2%），核心+2.6%，全面超预期</div></div>
+          <span class="pill bear">利空</span>
+        </div>
+        <p>9月PPI同比+2.5%（前值+2.2%），核心PPI+2.6%（前值+2.4%），全面超预期。继CPI超预期后PPI继续超预期彻底封死美联储转向空间。10Y美债收益率从5.18%快速突破5.20%并触及5.24%，美元指数站上103，金价从4135急跌约30美元至4105附近，<b>4100整数关口在尾盘短暂刺破后收复守住</b>。
+        <div class="dir" style="color:var(--red)">方向：冲击金价 · PPI超预期是压垮4150并测试4100的直接推手，4100短暂刺破后守住</div>
       </div>
 </div>
   </section>
@@ -285,30 +285,30 @@
       <div class="scn" data-s="A">
         <div class="prob">当前主导情景 · 概率约50%</div>
         <div class="name">情景 A · 4100整数关口本周确认破位</div>
-        <div class="cond">CPI超预期（+3.7%）+PPI超预期（+2.5%）双重确认通胀粘性，10Y约5.22%高位整固，美元103上方，4100昨夜虽守住但空头动能未衰竭，<b>本周后续若无新催化剂，4100整数关口确认破位概率约50%</b>。技术面：日线级别空头排列，MACD死叉扩散，RSI逼近超卖但未反转。</div>
-        <div class="path">金价路径：4108 → 北美时段无新催化剂 → 维持4100-4115区间 → 本周后半段美元维持103+或10Y不回落 → 4100确认破位 → 快速跌向4050-4100区域</div>
-        <div class="obs">观察：4100是否在北美时段确认破位、美元是否突破103.5、10Y是否上破5.25%</div>
+        <div class="cond">CPI超预期（+3.7%）+PPI超预期（+2.5%）双重确认通胀粘性，10Y约5.22%高位整固，美元103上方，4100本周虽守住但空头动能未衰竭。<b>本周若无新催化剂或官员讲话超预期鹰派，4100整数关口确认破位概率约50%</b>。技术面：日线级别空头排列，MACD死叉扩散，RSI逼近超卖但未反转。</div>
+        <div class="path">金价路径：4108 → 维持4100-4115区间 → 本周官员讲话鹰派或零售销售超预期 → 4100确认破位 → 快速跌向4050-4100区域</div>
+        <div class="obs">观察：4100是否在本周确认破位、美元是否突破103.5、10Y是否上破5.25%</div>
       </div>
       <div class="scn" data-s="B">
         <div class="prob">次要情景 · 概率约30%</div>
         <div class="name">情景 B · 4100反复整固后最终破位</div>
-        <div class="cond">4100整数关口作为心理支撑，在CPI+PPI双超预期的背景下空头已占绝对优势，但亚洲实物买盘和部分空头回补在4100上方形成阶段性支撑，<b>金价在4090-4115区间反复整固1-2个交易日后最终破位</b>。</div>
-        <div class="path">金价路径：4108 → 4090-4115区间反复整固1-2日 → 4100确认破位 → 延伸至4050-4100区域</div>
+        <div class="cond">4100整数关口作为心理支撑，在CPI+PPI双超预期的背景下空头已占绝对优势，但亚洲实物买盘和部分空头回补在4100上方形成阶段性支撑，<b>金价在4090-4115区间反复整固1-3个交易日后最终破位</b>。</div>
+        <div class="path">金价路径：4108 → 4090-4115区间反复整固1-3日 → 4100确认破位 → 延伸至4050-4100区域</div>
         <div class="obs">观察：4100区间整固时间、实物买盘是否介入、美元是否短暂回落至102.8附近</div>
       </div>
       <div class="scn" data-s="C">
         <div class="prob">尾部风险 · 概率约20%</div>
         <div class="name">情景 C · 官员意外温和触发技术反弹</div>
-        <div class="cond">本周后续美联储官员若发表意外温和讲话，或美国经济数据出现疲软迹象（如初请失业金大幅上升），可能触发短暂的技术性反弹。<b>4100整数关口是核心多空博弈区</b>，若守住则技术性反弹至4130-4150区间，但10月加息路径不改，反弹空间有限。</div>
+        <div class="cond">本周美联储官员若发表意外温和讲话（如暗示10月后暂停加息），或美国经济数据出现疲软迹象（如零售销售大幅低于预期），可能触发短暂的技术性反弹。<b>4100整数关口是核心多空博弈区</b>，若守住则技术性反弹至4130-4150区间，但10月加息路径不改，反弹空间有限。</div>
         <div class="path">金价路径：4108 → 4100守住 → 反弹至4130-4150区间（昙花一现）</div>
-        <div class="obs">观察：官员讲话措辞是否意外温和、4100是否持续守住、实物买盘规模是否扩大</div>
+        <div class="obs">观察：官员讲话措辞是否意外温和、4100是否持续守住、零售销售是否大幅低于预期</div>
       </div>
     <div class="scn-guide">使用方法：对照&quot;观察&quot;栏与每日更新的行情判断当前走向，点击对应卡片标记；刷新或下次打开仍会保留你的选择。</div>
   </section>
 
   <!-- ===== 6 数据日历 ===== -->
   <section class="sec">
-    <div class="sec-title"><span class="no">6</span>财经数据日历 <span class="hint">2026-10/7至10/29（北京时间）· CPI已公布（超预期）· FOMC纪要已公布（偏鹰）· PPI已公布（超预期）· 初请已公布 · 密歇根已公布（略低于预期）</span></div>
+    <div class="sec-title"><span class="no">6</span>财经数据日历 <span class="hint">2026-10/7至10/29（北京时间）· CPI已公布（超预期）· FOMC纪要已公布（偏鹰）· PPI已公布（超预期）· 初请已公布 · 密歇根已公布</span></div>
     <div class="cal-wrap">
       <table class="cal">
         <colgroup><col style="width:8%"><col style="width:29%"><col style="width:11%"><col style="width:10%"><col style="width:10%"><col style="width:10%"><col style="width:22%"></colgroup>
@@ -318,7 +318,7 @@
             <td class="time">10/7 20:30</td>
             <td>美国9月CPI同比 <span class="pill bear" style="font-size:10px">已公布</span></td>
             <td class="imp"><b>★★★★★</b><i></i></td>
-<td>3.4%（8月）</td>
+<td>3.4%</td>
 <td class="pending">--</td>
 <td>+3.7%</td>
             <td><span class="tg bear">超预期！加息概率飙至85%+</span></td>
@@ -327,7 +327,7 @@
             <td class="time">10/7 20:30</td>
             <td>美国9月核心CPI <span class="pill bear" style="font-size:10px">已公布</span></td>
             <td class="imp"><b>★★★★★</b><i></i></td>
-<td>2.45%（8月）</td>
+<td>2.45%</td>
 <td class="pending">--</td>
 <td>+3.4%</td>
             <td><span class="tg bear">超预期，巩固鹰派路径</span></td>
@@ -345,7 +345,7 @@
             <td class="time">10/8 20:30</td>
             <td>美国当周初请失业金 <span class="pill bear" style="font-size:10px">已公布</span></td>
             <td class="imp"><b>★★★</b><i>☆☆</i></td>
-<td>21.8万（9/20）</td>
+<td>21.8万</td>
 <td class="pending">--</td>
 <td>22.4万</td>
             <td><span class="tg bear">符合预期，就业紧张巩固加息，4150已失守</span></td>
@@ -354,7 +354,7 @@
             <td class="time">10/9 20:30</td>
             <td>美国9月PPI同比 <span class="pill bear" style="font-size:10px">已公布</span></td>
             <td class="imp"><b>★★★★</b><i>☆</i></td>
-<td>+2.2%（8月）</td>
+<td>+2.2%</td>
 <td class="pending">--</td>
 <td>+2.5%</td>
             <td><span class="tg bear">超预期！10Y突破5.20%，美元站上103，4100短暂刺破</span></td>
@@ -363,7 +363,7 @@
             <td class="time">10/9 20:30</td>
             <td>美国9月核心PPI <span class="pill bear" style="font-size:10px">已公布</span></td>
             <td class="imp"><b>★★★★</b><i>☆</i></td>
-<td>+2.4%（8月）</td>
+<td>+2.4%</td>
 <td class="pending">--</td>
 <td>+2.6%</td>
             <td><span class="tg bear">超预期，全面确认通胀粘性</span></td>
@@ -375,31 +375,31 @@
 <td class="pending">--</td>
 <td class="pending">--</td>
 <td>偏鹰</td>
-            <td><span class="tg bear">讲话后市场反应平淡，金价维持4100上方整固，无新催化剂</span></td>
+            <td><span class="tg bear">讲话后市场反应平淡，金价维持4100上方整固</span></td>
           </tr>
           <tr>
-            <td class="time">10/10（夜间）</td>
+            <td class="time">10/10 夜间</td>
             <td>美国10月密歇根消费者信心初值 <span class="pill bear" style="font-size:10px">已公布</span></td>
             <td class="imp"><b>★★★</b><i>☆☆</i></td>
-<td>70.1（9月）</td>
+<td>70.1</td>
 <td class="pending">--</td>
 <td>68.9</td>
-            <td><span class="tg bear">低于预期，1年期通胀预期3.1%，略降但仍偏高，不改变加息路径</span></td>
+            <td><span class="tg bear">低于预期，1年期通胀预期3.1%，略降但仍偏高</span></td>
           </tr>
           <tr>
-            <td class="time">10/11</td>
+            <td class="time">10/11-15</td>
             <td>美联储官员发声窗口</td>
             <td class="imp"><b>★★★</b><i>☆☆</i></td>
 <td class="pending">--</td>
 <td class="pending">--</td>
 <td>待举行</td>
-            <td><span class="tg pend">本周仍有发声窗口，密切关注措辞是否继续强化鹰派</span></td>
+            <td><span class="tg pend">本周仍有密集发声窗口，密切关注措辞是否继续强化鹰派</span></td>
           </tr>
           <tr>
-            <td class="time">10/16</td>
+            <td class="time">10/16 20:30</td>
             <td>美国9月零售销售</td>
             <td class="imp"><b>★★★★</b><i>☆</i></td>
-<td>0.1%（8月）</td>
+<td>0.1%</td>
 <td class="pending">--</td>
 <td>待公布</td>
             <td><span class="tg pend">消费数据若超预期则进一步巩固鹰派，10月加息概率或升至98%+</span></td>
@@ -416,17 +416,17 @@
         </tbody>
       </table>
     </div>
-    <div class="cal-note">CPI已公布（+3.7%超预期）+FOMC纪要已公布（偏鹰）+初请已公布（22.4万符合预期）+PPI已公布（+2.5%超预期）+密歇根已公布（68.9低于预期，1年期3.1%），六重数据/事件确认10月加息路径（概率约95%），10Y昨夜触及5.24%后回落至5.22%，美元站上103，金价昨夜急跌至4105附近，4100短暂刺破后收复，10/11凌晨约4108；美联储官员亚盘讲话已发生（无新意），本周仍有发声窗口，4100整数关口本周持续面临严峻考验。</div>
+    <div class="cal-note">CPI已公布（+3.7%超预期）+FOMC纪要已公布（偏鹰）+初请已公布（22.4万符合预期）+PPI已公布（+2.5%超预期）+密歇根已公布（68.9低于预期，1年期3.1%），六重数据/事件确认10月加息路径（概率约95%），10Y昨夜触及5.24%后回落至5.22%，美元站上103，金价昨夜急跌至4105附近，4100短暂刺破后收复守住，周五北美收盘约4108；本周美联储官员讲话是最大变量，4100整数关口本周持续面临严峻考验。</div>
   </section>
 
   <!-- ===== 7 事件时间轴 ===== -->
   <section class="sec">
     <div class="wrap760">
-    <div class="sec-title"><span class="no">7</span>近期关键事件时间轴 <span class="hint">最近 10 个交易日关键节点回顾 · 10/11 02:29北京时间，北美时段尾声</span></div>
+    <div class="sec-title"><span class="no">7</span>近期关键事件时间轴 <span class="hint">最近 10 个交易日关键节点回顾 · 10/11 07:28北京时间，亚洲时段（周六休市）</span></div>
     <div class="tl">
-      <div class="t">10/11 02:29</div><div class="c"><span class="dot small"></span></div><div class="x">
-        <div class="ev">本轮研究（10/11 02:29北京时间）：北美时段金价约4100-4115区间整固，无重大新催化剂，4100整数关口守住；密歇根消费者信心初值68.9低于前值70.1，1年期通胀预期3.1%略降，整体偏中性，不改变加息路径</div>
-        <div class="de">10/11北美时段金价约4100-4115区间窄幅整固，10Y约5.20%-5.23%区间，美元约103.0-103.2，4100整数关口在北美时段守住；密歇根消费者信心初值68.9低于预期，1年期通胀预期3.1%（前值3.2%）略降但仍处偏高水平，整体对金价无明确方向指引。</div>
+      <div class="t">10/11 07:28</div><div class="c"><span class="dot small"></span></div><div class="x">
+        <div class="ev">本轮研究（10/11 07:28北京时间）：周六亚洲时段，金价参考周五北美收盘约4108美元/盎司，4100整数关口守住；本周CPI+PPI双超预期+FOMC纪要鹰派三重确认加息路径，10Y约5.22%，美元约103.1</div>
+        <div class="de">周六亚洲时段，金价参考周五北美收盘约4108美元/盎司整固，10Y约5.20%-5.23%，美元约103.0-103.2，4100整数关口在北美时段守住；本周CPI+PPI双超预期+FOMC纪要鹰派三重确认10月加息路径，10Y触及5.24%后回落，美元站上103。</div>
       </div>
       <div class="t">10/10 夜间</div><div class="c"><span class="dot small"></span></div><div class="x">
         <div class="ev">美国10月密歇根消费者信心初值：约68.9（前值70.1），1年期通胀预期约3.1%</div>
@@ -435,15 +435,15 @@
       </div>
       <div class="t">10/10 北美时段</div><div class="c"><span class="dot small"></span></div><div class="x">
         <div class="ev">10/10北美时段：金价约4100-4115区间窄幅整固，4100整数关口守住</div>
-        <div class="de">10/10北美时段金价约4100-4115区间，4100整数关口在北美时段守住，多空双方均无明显动能突破；10Y约5.20%-5.23%，美元约103.0-103.2，无重大新催化剂，金价维持极窄幅整固。</div>
+        <div class="de">10/10北美时段金价约4100-4115区间，4100整数关口守住，多空双方均无明显动能突破；10Y约5.20%-5.23%，美元约103.0-103.2，PPI超预期后市场逐步消化，无重大新催化剂，金价维持极窄幅整固。</div>
       </div>
       <div class="t">10/10 10:30</div><div class="c"><span class="dot small"></span></div><div class="x">
         <div class="ev">美联储官员亚盘讲话：偏鹰但无新意，金价4100上方整固平淡</div>
-        <div class="de">10/10 10:30美联储官员亚盘讲话，在CPI+PPI双超预期的鹰派背景下发表，措辞未超预期，金价反应平淡，维持4100-4110区间极窄幅整固，市场等待北美时段新动能。</div>
+        <div class="de">10/10 10:30美联储官员亚盘讲话，在CPI+PPI双超预期的鹰派背景下发表，措辞未超预期，金价反应平淡，维持4100-4110区间极窄幅整固，市场等待本周北美时段新催化剂。</div>
       </div>
       <div class="t">10/9 20:30</div><div class="c"><span class="dot small"></span></div><div class="x">
         <div class="ev">美国9月PPI：同比+2.5%（超预期），核心+2.6%（超预期），全面超预期</div>
-        <div class="de">9月PPI同比+2.5%（前值+2.2%），核心PPI+2.6%（前值+2.4%），全面超预期。继CPI超预期（+3.7%）后，PPI继续超预期彻底封死美联储转向空间，10Y美债收益率从5.18%快速突破5.20%并触及5.24%，美元指数站上103整数关口，金价从4135急跌约30美元至4105附近，4100整数关口在尾盘短暂刺破后收复。</div>
+        <div class="de">9月PPI同比+2.5%（前值+2.2%），核心PPI+2.6%（前值+2.4%），全面超预期。继CPI超预期（+3.7%）后，PPI继续超预期彻底封死美联储转向空间，10Y美债收益率从5.18%快速突破5.20%并触及5.24%，美元指数站上103，金价从4135急跌约30美元至4105附近，4100整数关口在尾盘短暂刺破后收复。</div>
         <div class="mk"><span class="pill bear">PPI超预期（+2.5%）· 10Y突破5.20%，4100短暂刺破</span></div>
       </div>
       <div class="t">10/8 20:30</div><div class="c"><span class="dot small"></span></div><div class="x">
@@ -493,10 +493,10 @@
   <!-- ===== 风险提示 ===== -->
   <div class="risk">
     <h3>风险提示（务必阅读）</h3>
-    <p>本看板全部内容基于2026-10-11可获得的公开信息进行情景推演，仅为信息整理与参考框架，<b>不构成任何投资建议，不承诺任何价格走势</b>。美联储政策表态随时可能超预期反转，任何机构预测都存在失败概率。昨夜PPI超预期引发约30美元级波动。黄金当前处于CPI超预期（+3.7%）+PPI超预期（+2.5%）+FOMC纪要鹰派四重打压下的加速下行阶段，10Y昨夜触及5.24%后回落至5.22%+美元升至103形成双重强力压制，4100整数关口昨夜短暂刺破后收复，北美时段约4100-4115区间清淡整固，10/11凌晨约4108；本周美联储官员讲话仍是最大变量，4100整数关口本周持续面临严峻考验；杠杆交易（期货、外盘现货）风险极高，请务必控制仓位、谨慎决策。</p>
+    <p>本看板全部内容基于2026-10-11可获得的公开信息进行情景推演，仅为信息整理与参考框架，<b>不构成任何投资建议，不承诺任何价格走势</b>。美联储政策表态随时可能超预期反转，任何机构预测都存在失败概率。本周PPI超预期（+2.5%）引发约30美元级波动，CPI+PPI双超预期+FOMC纪要鹰派三重打压下金价急跌至4100附近。黄金当前处于CPI超预期（+3.7%）+PPI超预期（+2.5%）+FOMC纪要鹰派三重打压下的加速下行阶段，10Y昨夜触及5.24%后回落至5.22%+美元升至103形成双重强力压制，4100整数关口在北美时段短暂刺破后收复守住，10/11亚洲时段参考价约4108；本周美联储官员讲话仍是最大变量，4100整数关口本周持续面临严峻考验；杠杆交易（期货、外盘现货）风险极高，请务必控制仓位、谨慎决策。</p>
   </div>
 
-  <footer>黄金走势跟踪看板 · 数据来源：新浪财经、彭博、路透、金十数据、同花顺行情、美联储官网、CME FedWatch、世界黄金协会等公开渠道 · 生成时间2026-10-11 02:29</footer>
+  <footer>黄金走势跟踪看板 · 数据来源：新浪财经、彭博、路透、金十数据、同花顺行情、美联储官网、CME FedWatch、世界黄金协会等公开渠道 · 生成时间2026-10-11 07:28</footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
@@ -507,7 +507,7 @@
   var el = document.getElementById('goldChart');
   if (window.echarts && el) {
     var chart = echarts.init(el);
-    chart.setOption({"backgroundColor":"transparent","tooltip":{"trigger":"axis","triggerOn":"click","renderMode":"richText","confine":true},"grid":{"left":12,"right":16,"top":30,"bottom":24,"containLabel":true},"xAxis":{"type":"category","data":["9/5","9/6","9/8","9/9","9/10","9/11","9/12","9/15","9/16","9/17","9/18","9/22","9/23","9/24","9/25","9/26","10/7"],"axisLabel":{"color":"#93a1b5","fontSize":11},"axisLine":{"lineStyle":{"color":"#2a3548"}}},"yAxis":{"type":"value","min":4050,"max":4560,"axisLabel":{"color":"#93a1b5","fontSize":11},"splitLine":{"lineStyle":{"type":"dashed","color":"#232d3f"}}},"series":[{"type":"line","data":[4320.45,4318.2,4355.08,4400.86,4316.78,4347.52,4360.55,4293.34,4263.13,4341.01,4377.29,4374.15,4244.52,4286.1,4295.2,4284.26,4108],"lineStyle":{"width":2.5,"color":"#d4a643"},"itemStyle":{"color":"#d4a643"},"symbolSize":6,"areaStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"rgba(212,166,67,.22)"},{"offset":1,"color":"rgba(212,166,67,0)"}]}},"markLine":{"silent":true,"symbol":"none","label":{"fontSize":11,"color":"#93a1b5","position":"insideEndTop"},"data":[{"yAxis":4108,"lineStyle":{"color":"#e08a3c","type":"dashed"},"label":{"formatter":"当前价约4108（10/11 02:29北京时间）"}},{"yAxis":4100,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"整数关口4100（昨夜守住，北美时段核心多空分水岭）"}},{"yAxis":4150,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"整数关口4150（已确认失守）· 转化为强压力"}},{"yAxis":4340,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"关键阻力4340（9/17收盘4341）· 多空分水岭，已失守"}},{"yAxis":4383,"lineStyle":{"color":"#c9a227","type":"dashed"},"label":{"formatter":"中期压力4383-4430（9月成交密集区）"}},{"yAxis":4510,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"顶部压力4470-4510（9月高点区，8/31触及4510）"}},{"yAxis":4050,"lineStyle":{"color":"#3fb27f","type":"dashed"},"label":{"formatter":"近期支撑4050（8月次低区）· 4100确认破位后核心下探目标"}},{"yAxis":4000,"lineStyle":{"color":"#3fb27f","type":"dashed"},"label":{"formatter":"整数关口4000（年内长期支撑带，极端尾部风险）"}}]},"markPoint":{"symbol":"pin","symbolSize":32,"label":{"fontSize":10,"color":"#e8edf5"},"data":[{"type":"max","itemStyle":{"color":"#e25555"}},{"type":"min","itemStyle":{"color":"#3fb27f"}}]}}]});
+    chart.setOption({"backgroundColor":"transparent","tooltip":{"trigger":"axis","triggerOn":"click","renderMode":"richText","confine":true},"grid":{"left":12,"right":16,"top":30,"bottom":24,"containLabel":true},"xAxis":{"type":"category","data":["9/5","9/6","9/8","9/9","9/10","9/11","9/12","9/15","9/16","9/17","9/18","9/22","9/23","9/24","9/25","9/26","10/10"],"axisLabel":{"color":"#93a1b5","fontSize":11},"axisLine":{"lineStyle":{"color":"#2a3548"}}},"yAxis":{"type":"value","min":4000,"max":4560,"axisLabel":{"color":"#93a1b5","fontSize":11},"splitLine":{"lineStyle":{"type":"dashed","color":"#232d3f"}}},"series":[{"type":"line","data":[4320.45,4318.2,4355.08,4400.86,4316.78,4347.52,4360.55,4293.34,4263.13,4341.01,4377.29,4374.15,4244.52,4286.1,4295.2,4284.26,4108],"lineStyle":{"width":2.5,"color":"#d4a643"},"itemStyle":{"color":"#d4a643"},"symbolSize":6,"areaStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"rgba(212,166,67,.22)"},{"offset":1,"color":"rgba(212,166,67,0)"}]}},"markLine":{"silent":true,"symbol":"none","label":{"fontSize":11,"color":"#93a1b5","position":"insideEndTop"},"data":[{"yAxis":4108,"lineStyle":{"color":"#e08a3c","type":"dashed"},"label":{"formatter":"当前价约4108（10/11 07:28北京时间，周五北美收盘）"}},{"yAxis":4100,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"整数关口4100（本周守住，短暂刺破后收复）"}},{"yAxis":4150,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"整数关口4150（已确认失守）· 转化为强压力"}},{"yAxis":4340,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"关键阻力4340（9/17收盘4341）· 多空分水岭，已失守"}},{"yAxis":4383,"lineStyle":{"color":"#c9a227","type":"dashed"},"label":{"formatter":"中期压力4383-4430（9月成交密集区）"}},{"yAxis":4510,"lineStyle":{"color":"#e25555","type":"dashed"},"label":{"formatter":"顶部压力4470-4510（9月高点区，8/31触及4510）"}},{"yAxis":4050,"lineStyle":{"color":"#3fb27f","type":"dashed"},"label":{"formatter":"近期支撑4050（8月次低区）· 4100确认破位后核心下探目标"}},{"yAxis":4000,"lineStyle":{"color":"#3fb27f","type":"dashed"},"label":{"formatter":"整数关口4000（年内长期支撑带，极端尾部风险）"}}]},"markPoint":{"symbol":"pin","symbolSize":32,"label":{"fontSize":10,"color":"#e8edf5"},"data":[{"type":"max","itemStyle":{"color":"#e25555"}},{"type":"min","itemStyle":{"color":"#3fb27f"}}]}}]});
     window.addEventListener('resize', function(){ chart.resize(); });
   } else {
     var fb = document.getElementById('chartFallback');

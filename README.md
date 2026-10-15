@@ -1,15 +1,15 @@
 # 黄金走势跟踪看板（GoldDashboard）
 
-每 2 小时自动检索影响金价的行情与新闻事件，重新生成单页看板并发布到固定公网地址。
+默认已停用自动定时刷新：手动触发时检索影响金价的行情与新闻事件，重新生成单页看板并发布到固定公网地址。
 
-**不需要本地常驻服务**：定时抓取由 GitHub Actions cron 完成，页面通过 GitHub Pages 提供固定公网 URL，外部直接访问即可。
+**不需要本地常驻服务**：抓取由 GitHub Actions 执行（当前仅手动触发，`schedule` 已注释停用），页面通过 GitHub Pages 提供固定公网 URL，外部直接访问即可。
 
 ---
 
 ## 一、架构总览
 
 ```
-GitHub Actions (cron: 11 */2 * * *)
+GitHub Actions（当前：workflow_dispatch 手动触发；cron 已停用）
    │
    ├─ 1. research/run.mjs    调用 LLM API（OpenAI 兼容协议）检索行情+新闻，
    │                          结合上一轮 data.json，输出新的 data.json
@@ -28,7 +28,7 @@ GitHub Actions (cron: 11 */2 * * *)
 
 ```
 ├── .github/workflows/
-│   ├── dashboard.yml        # 定时研究 + 校验 + 渲染 + 提交（cron）
+│   ├── dashboard.yml        # 研究 + 校验 + 渲染 + 提交（cron 已停用，手动触发）
 │   └── pages.yml            # GitHub Pages 部署（只发布 index.html + data.json）
 ├── research/
 │   ├── run.mjs              # LLM 研究调用（OpenAI 兼容 /chat/completions）
@@ -83,9 +83,9 @@ GitHub Actions (cron: 11 */2 * * *)
 
 ## 五、日常运维
 
-- **改刷新频率**：编辑 `.github/workflows/dashboard.yml` 的 `cron`（UTC 时区）。当前 `11 */2 * * *` = 北京时间偶数小时的 :11，每 2 小时一轮。
+- **恢复自动刷新 / 改刷新频率**：编辑 `.github/workflows/dashboard.yml`，取消 `schedule` 两行的注释（并按需改 `cron`，UTC 时区）。原设置 `11 */2 * * *` = 北京时间偶数小时的 :11，每 2 小时一轮，现已停用。
 - **换 LLM 供应商/模型**：只改 Secrets，无需改代码（兼容协议前提下）。
-- **临时停更**：Actions → dashboard-refresh → Disable workflow。
+- **紧急停更**：Actions → gold-dashboard-refresh → Disable workflow（代码里的 `schedule` 已注释，正常情况下不会再自动跑）。
 - **查看某轮失败原因**：Actions 运行记录；最常见是 LLM 返回 JSON 不合法被 validate 拦截——重跑一次即可（workflow_dispatch）。
 - **页面手动刷新**：`meta refresh` 900 秒 + 暂停按钮，与重构前一致。
 

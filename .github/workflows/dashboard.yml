@@ -1,9 +1,10 @@
 name: gold-dashboard-refresh
 
-# 每 2 小时：UTC 偶数小时的 :11 ≈ 北京时间偶数小时的 :11（UTC+8）
+# 自动定时刷新已停用：原 cron '11 */2 * * *'（UTC 偶数小时 :11 ≈ 北京时间偶数小时 :11，每 2 小时一轮）已注释掉。
+# 恢复自动运行：取消下面 schedule 两行的注释并推送到 GitHub；停用期间只在 Actions 里手动触发（Run workflow）。
 on:
-  schedule:
-    - cron: '11 */2 * * *'
+  # schedule:
+  #   - cron: '11 */2 * * *'
   workflow_dispatch: {}
 
 permissions:
